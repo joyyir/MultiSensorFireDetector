@@ -3,6 +3,8 @@
 
 #include <cstdio>
 #include <cmath>
+#include <string>
+using namespace std;
 
 // 멤버십 함수 inferface
 // 모든 멤버십 함수는 이 인터페이스를 상속받는다.

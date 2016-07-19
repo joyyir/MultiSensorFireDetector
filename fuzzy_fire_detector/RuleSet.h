@@ -71,7 +71,7 @@ public:
 			i->second = 0;
 		}
 
-		if(printMsg) printf("===== getResultValue Result =====\n");
+		if(printMsg) printf("=============== getResultValue Result ===============\n");
 
 		for (int i = 0; i < mRuleCount; i++){
 			minVal = 99999;
@@ -80,7 +80,15 @@ public:
 				minVal = min(minVal, mRuleArr[i].getCondFuzzySet(j)->getValue(cond[j]));
 				//printf("    %lf ==> %lf\n", cond[j], mRuleArr[i].getCondFuzzySet(j)->getValue(cond[j]));
 			}
-			if (printMsg) printf("  Rule %d: %s = %lf\n", i+1, mRuleArr[i].getFuzzySetResultKey().c_str(), minVal);
+
+			if (printMsg) {
+				string inputCond = "";
+				for (int j = 0; j < mRuleArr[i].getCondSize(); j++){
+					inputCond += mRuleArr[i].getCondFuzzySet(j)->getName();
+					inputCond += " ";
+				}
+				printf("  Rule %d ( %s) : %s = %lf\n", i+1, inputCond.c_str(), mRuleArr[i].getFuzzySetResultKey().c_str(), minVal);
+			}
 
 			mMapResult[mRuleArr[i].getFuzzySetResultKey()] = mRuleArr[i].getFuzzysetResult();
 
@@ -95,7 +103,7 @@ public:
 
 		if (printMsg) printf("\n  defuzzification: %lf\n", defuzz); // 결과는 0~100까지. 샘플 300개 추출
 
-		if (printMsg) printf("=================================\n");
+		if (printMsg) printf("=====================================================\n");
 
 		///////////////////////////////////////////////////////////////////////////////////////////////////////
 		//for (map<string, double>::iterator i = mMapMax.begin(); i != mMapMax.end(); i++)

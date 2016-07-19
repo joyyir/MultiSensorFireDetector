@@ -11,9 +11,14 @@
 class FuzzySet{
 private:
 	MembershipFunction *mMemberFunc; // 멤버십 함수
+	string mName;
 public:
 	FuzzySet(){
 		mMemberFunc = NULL;
+	}
+
+	FuzzySet(string name) : FuzzySet(){
+		mName = name;
 	}
 
 	// 멤버십 함수를 등록한다.
@@ -29,6 +34,10 @@ public:
 			printf("error: Member Function is not assigned\n");
 			return 0;
 		}
+	}
+
+	string getName(){
+		return mName;
 	}
 };
 
