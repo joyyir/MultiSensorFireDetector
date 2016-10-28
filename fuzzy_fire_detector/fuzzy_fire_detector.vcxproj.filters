@@ -30,6 +30,9 @@
     <ClCompile Include="RuleSet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="InterfaceToAlgorithm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembershipFunction.h">
@@ -42,6 +45,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="RuleSet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceToAlgorithm.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -220,25 +220,25 @@ int main(){
 	//vector<double> cond = { 25, 60, 5, 5, 10 }; // 평상 조건 (온도 25C, 상대습도 60%, 가스 5, 영상기반 10%)
 	//vector<double> cond = { 25, 60, 5, 5, 80 }; // 평상 조건에서 영상기반만 높음 (온도 25C, 상대습도 60%, 가스 5, 영상기반 80%)
 	//vector<double> cond = { 53, 60, 5, 5, 10 }; // 평상 조건에서 온도만 높음 (온도 40C, 상대습도 60%, 가스 5, 영상기반 10%)
-	//vector<double> cond = { 25, 55, 5, 5, 40 };
-	//ruleSet.getResultValue(cond, true); // fuzzy inference 연산을 취한다.
+	vector<double> cond = { 25, 55, 5, 5, 40 };
+	ruleSet.getResultValue(cond, true); // fuzzy inference 연산을 취한다.
 
 	//writeCSV2(&ruleSet, 101);
 
-	const double video = 10;
-	vector<double> cond = { 0, 0, 0, 0, video };
-	vector<double> vecTime, vecTemp, vecHumid, vecGas, vecSmoke, vecDefuzz;
-	readFromCSV(vecTime, vecTemp, vecHumid, vecGas, vecSmoke);
-	int cnt = vecTime.size();
-	for (int i = 0; i < cnt; i++){
-	//	//printf("======================================================================\n");
-	//	//printf("time: %.2lf, temp: %.2lf도, humid: %.2lf%%, gas: %.2lf, smoke: %.2lf\n", vecTime[i], vecTemp[i], vecHumid[i], vecGas[i], vecSmoke[i]);
-		cond[0] = vecTemp[i];
-		cond[1] = vecHumid[i];
-		cond[2] = vecGas[i];
-		cond[3] = vecSmoke[i];
-		vecDefuzz.push_back(ruleSet.getResultValue(cond, false));
-	}
-	writeToCSV(vecTime, vecTemp, vecHumid, vecGas, vecSmoke, vecDefuzz);
+	//const double video = 10;
+	//vector<double> cond = { 0, 0, 0, 0, video };
+	//vector<double> vecTime, vecTemp, vecHumid, vecGas, vecSmoke, vecDefuzz;
+	//readFromCSV(vecTime, vecTemp, vecHumid, vecGas, vecSmoke);
+	//int cnt = vecTime.size();
+	//for (int i = 0; i < cnt; i++){
+	////	//printf("======================================================================\n");
+	////	//printf("time: %.2lf, temp: %.2lf도, humid: %.2lf%%, gas: %.2lf, smoke: %.2lf\n", vecTime[i], vecTemp[i], vecHumid[i], vecGas[i], vecSmoke[i]);
+	//	cond[0] = vecTemp[i];
+	//	cond[1] = vecHumid[i];
+	//	cond[2] = vecGas[i];
+	//	cond[3] = vecSmoke[i];
+	//	vecDefuzz.push_back(ruleSet.getResultValue(cond, false));
+	//}
+	//writeToCSV(vecTime, vecTemp, vecHumid, vecGas, vecSmoke, vecDefuzz);
 	return 0;
 }
